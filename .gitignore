@@ -7,3 +7,5 @@ telegram_core/fix/bingx/__pycache__/bingxAPI.cpython-39.pyc
 telegram_core/fix/bingx/__pycache__/Dispatcher.cpython-39.pyc
 telegram_core/fix/bingx/__pycache__/main.cpython-39.pyc
 telegram_core/fix/bingx/__pycache__/bingxAPI.cpython-39.pyc
+*.pyc
+*.out

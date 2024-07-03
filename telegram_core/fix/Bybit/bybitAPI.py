@@ -13,7 +13,7 @@ ERROR_MSGS = ["can not set tp/sl/ts for zero position"]
 
 
 class Client:
-    SAPI = 'https://api-testnet.bybit.com'
+    SAPI = 'https://api.bybit.com'
 
     def __init__(self, apikey=None, secretkey=None):
         self.apikey = apikey

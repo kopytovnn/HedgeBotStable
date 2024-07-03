@@ -6,14 +6,14 @@ import asyncio
 
 
 class Dispatcher:
-    valueMap = {1: 0.4,
-                 2: 0.4,
-                 3: 0.8,
-                 4: 1.6,
-                 5: 3.2,
-                 6: 6.4,
-                 7: 12.8,
-                 8: 25.6}
+    valueMap = {1: 0.2,
+                 2: 0.2,
+                 3: 0.4,
+                 4: 0.8,
+                 5: 1.6,
+                 6: 3.2,
+                 7: 6.4,
+                 8: 12.8}
 
     stepMap = {1: 0,
                 2: 0.3,
@@ -74,7 +74,7 @@ class Dispatcher:
 
         limitPrice = marketOrder.price * (1 + self.stepMap[step + 1] / 100)
         limitOrder = ShortLimitOrder(self.cl, self.symbol)
-        limitOrder.open(position.qty / position.price, limitPrice)
+        limitOrder.open(position.qty / limitPrice, limitPrice)
         print(limitOrder)
         await asyncio.sleep(1)
 
@@ -105,7 +105,7 @@ class Dispatcher:
                 limitQty = baseDepo * self.valueMap[step + 1]
                 limitPrice = marketOrder.price * (1 + self.stepMap[step + 1] / 100)
                 limitOrder = ShortLimitOrder(self.cl, self.symbol)
-                limitOrder.open(position.qty / position.price, limitPrice)
+                limitOrder.open(position.qty / limitPrice, limitPrice)
                 limitOrder.Update()
                 print('\n', position, '\n', limitOrder)
             if limitOrder.status == 'Filled' and step == 7:
